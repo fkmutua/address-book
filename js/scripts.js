@@ -2,6 +2,9 @@
 function Contact(first, last) {
     this.firstName = first;
     this.lastName = last;
+    this.town = town;
+    this.state = state;
+    this.street = street;
 }
 
 Contact.prototype.fullName = function() {
@@ -15,6 +18,9 @@ $(document).ready(function() {
 
         var inputtedFirstName = $("input#new-first-name").val();
         var inputtedLastName = $("input#new-last-name").val();
+        var inputtedTown = $("input#new-town").val();
+        var inputtedState = $("input#new-state").val();
+        var inputtedStreet = $("input#new-street").val();
 
         var newContact = new Contact(inputtedFirstName, inputtedLastName);
 
@@ -22,10 +28,18 @@ $(document).ready(function() {
 
         $("input#new-first-name").val("");
         $("input#new-last-name").val("");
+        $("input#new-town").val("");
+        $("input#new-state").val("");
+        $("input#new-treet").val("");
+
         $(".contact").last().click(function() {
             $("#show-contact").show();
             $(".first-name").text(newContact.firstName);
             $(".last-name").text(newContact.lastName);
+            $(".town").text(newContact.town);
+            $(".state").text(newContact.state);
+            $(".street").text(newContact.street);
+
         });
     });
 });
